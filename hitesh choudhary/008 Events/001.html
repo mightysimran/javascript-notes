@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events</title>
+</head>
+<body style="background-color: #252525; color: white; font-family:sans-serif;">
+    <div>
+        <ul id="images">
+            <li><img width="25%" id="mountain1" src="images/mountain1.jpg" alt=""></li>
+            <li><img width="25%" id="mountain2" src="images/mountain2.jpg" alt=""></li>
+            <li><img width="25%" id="mountain3" src="images/mountain3.jpg" alt=""></li>
+            <li><img width="25%" id="mountain4" src="images/mountain4.jpg" alt="" ></li>
+            <li><img width="25%" id="mountain5" src="images/mountain5.jpg" alt=""></li>
+            <li><a style="color: white; text-decoration: none; font-style: italic; font-size: 1.125rem;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+
+<script>
+    // document.getElementById('mountain4').onclick = function(){
+    //     alert("mountain4 clicked")
+    // }
+
+    // element.attachEvent() -> deprecated
+    // Non-standard: Only supported in older versions of Internet Explorer.
+
+    // jQuery - .on()
+
+    // Modern alt for above -> .addEventListener()
+
+
+    // Refer and explore the following JavaScript Event props:
+    // type, timestamp
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode (deprecated) -> use event.key or event.code
+
+
+    // The concept of event propagation, bubbling and capturing
+
+    // Propagation refers to how events travel through the Document Object Model (DOM) tree.
+    // Bubbling and Capturing are the two phases of propagation.
+    // In their simplest definitions, bubbling travels from the target to the root, and capturing travels from the root to the target.
+
+    // Syntax - .addEventListener(e, function(){}, boolean)
+
+    // false -> bubbling (default)
+    // true -> capturing
+
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("Triggered an action inside <ul>");
+    }, false)
+
+    document.getElementById('mountain4').addEventListener('click', function(e){
+        console.log("mountain4 clicked");
+        // e.stopPropagation()
+    }, false)
+    
+    document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault()
+        e.stopPropagation()
+        console.log("The link was clicked.");
+    }, false)
+
+
+    // document.querySelector('#images').addEventListener('click', function(e){
+    //     console.log(e.target.tagName);
+    //     if (e.target.tagName === 'IMG') {
+    //         console.log(e.target.id);
+    //         let eltober = e.target.parentNode
+    //         eltober.remove()
+    //     }
+    // })
+    
+    //eltober.parentNode.removeChild(eltober)
+</script>
+</html>
