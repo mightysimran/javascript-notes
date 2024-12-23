@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval and clearInterval</title>
+</head>
+<body>
+    <h1>Incrementer</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    // const now = function(str){
+    //     // console.log(Date.now())
+    //     console.log(str, Date.now())
+    // }
+
+    let i;
+    let count = 0
+
+    const start = function(){
+        if (!i){
+            i = setInterval(incrementer, 500)
+        }
+        function incrementer(){
+            count++
+            console.log(count)
+        }
+    }
+
+    const stop = function(){
+        clearInterval(i)
+        i = null
+    }
+
+    document.querySelector("#start").addEventListener('click', start)
+    document.querySelector("#stop").addEventListener('click', stop)
+    
+</script>
+</html>
