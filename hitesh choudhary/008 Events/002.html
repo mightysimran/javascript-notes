@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout and clearTimeout</title>
+</head>
+<body>
+    <h1>Hello, world.</h1>
+    <button id="cancel">cancel</button>
+</body>
+<script>
+
+    // setTimeout(function(){
+    //     console.log("Hi")
+    // }, 1000)
+
+    // const fnc = function(){
+    //     console.log("Hi")
+    // }
+    // setTimeout(fnc, 1000)
+    
+    // setTimeout(function(){
+    //     document.querySelector('h1').textContent = `Hi, Simran.`
+    // }, 2000)
+
+
+    const modif = function(){
+        document.querySelector('h1').textContent = `Hi, Simran.`
+    }
+    const i = setTimeout(modif, 2000);
+
+    document.querySelector("#cancel").addEventListener('click', function(){
+        clearTimeout(i)
+        console.log("canceled.")
+    })
+</script>
+</html>
