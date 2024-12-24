@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const url = 'https://api.github.com/users/mightysimran'
+    const xhr = new XMLHttpRequest();
+    
+    xhr.open('GET', url)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4){
+            
+            console.log(typeof this.responseText) // -> string
+            const data = JSON.parse(this.responseText) // Converts string to JavaScript Object Notation (JSON)
+            console.log(typeof data) // -> object
+            
+            console.log(data)
+            console.log(data.followers)
+        }
+    }
+    xhr.send()
+</script>
+</html>
