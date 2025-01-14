@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+<body style="background-color: #252525; color: white;">
+    <button id="white">White</button>
+    <button id="royalblue">Blue</button>
+</body>
+<script>
+    // function init(){
+    //     let name = "Mozilla"
+    //     function displayName(){
+    //         console.log(name);
+    //     }
+    //     displayName()
+    // }
+    // init()
+
+
+    // function outer(){
+    //     let x = "javascript"
+    //     console.log("Outer: ", y) // -> Error
+        
+    //     function inner1(){
+    //         let y = "rust"
+    //         console.log("Inner1: ", x)
+    //     }
+
+    //     function inner2(){
+    //         console.log("Inner2: ", x)
+    //         console.log(y) // -> Error
+    //     }
+
+    //     inner1();
+    //     inner2();
+    // }
+    // outer();
+
+
+    // function fn(){
+    //     const name = "Mozilla"
+    //     function displayName(){
+    //         console.log(name)
+    //     }
+
+    //     return displayName;
+    // }
+    // const fnc = fn();
+    // fnc()
+</script>
+
+<script>
+    // document.getElementById("white").onclick = function(){
+    //     document.body.style.backgroundColor =  `white`
+    // }
+    // document.getElementById("royalblue").onclick = function(){
+    //     document.body.style.backgroundColor =  `royalblue`
+    // }
+
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor = `${color}`;
+
+        return function(){
+            document.body.style.backgroundColor = `${color}`;
+        }
+    }
+
+    document.getElementById('white').onclick = clickHandler("white")
+    document.getElementById('royalblue').onclick = clickHandler("royalblue")
+</script>
+</html>
+
+<!-- A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives a function access to its outer scope. In JavaScript, closures are created every time a function is created, at function creation time. It is a function that "remembers" the variables from its lexical scope, even after the scope in which it was created has left -->
